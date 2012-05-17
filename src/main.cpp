@@ -39,11 +39,11 @@ int main(int argc, char** argv) {
     
     glutInit(&argc, argv);
     
-    window = new Window(1280, 1024);
+    window = new Window(800, 600);
     
     int i = 0;
-    for (i = 0; i < 10000; i++) {
-        window->addSprite(new Sprite((drand48()*2.0)-1.0, (drand48()*2.0)-1.0, (drand48()-0.5)/25.0, (drand48()-0.5)/25.0, 0.1));
+    for (i = 0; i < 1000; i++) {
+        window->addSprite(new Sprite((drand48()*2.0)-1.0, (drand48()*2.0)-1.0, (drand48()-0.5)/10.0, (drand48()-0.5)/10.0, 0.1));
     }
     
     if (window->init()) {
