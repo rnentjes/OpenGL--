@@ -4,9 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>include/Keyboard.h</itemPath>
       <itemPath>include/Sprite.h</itemPath>
       <itemPath>include/Window.h</itemPath>
       <itemPath>include/location.h</itemPath>
+      <itemPath>include/main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -15,6 +17,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/Keyboard.cpp</itemPath>
       <itemPath>src/Sprite.cpp</itemPath>
       <itemPath>src/Window.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
@@ -30,6 +33,10 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>src/Mouse.cpp</itemPath>
+    <itemPath>include/Mouse.h</itemPath>
+    <itemPath>src/Text.cpp</itemPath>
+    <itemPath>include/Text.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -47,6 +54,7 @@
         <linkerTool>
           <linkerLibItems>
             <linkerOptionItem>-lglut -lGLEW -lGL -lfreeimage</linkerOptionItem>
+            <linkerOptionItem>-lSDL</linkerOptionItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

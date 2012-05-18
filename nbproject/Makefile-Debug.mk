@@ -34,9 +34,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/Keyboard.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/Sprite.o \
-	${OBJECTDIR}/src/Window.o
+	${OBJECTDIR}/src/Mouse.o \
+	${OBJECTDIR}/src/Window.o \
+	${OBJECTDIR}/src/Text.o
 
 
 # C Compiler Flags
@@ -53,15 +56,20 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lglut -lGLEW -lGL -lfreeimage
+LDLIBSOPTIONS=-lglut -lGLEW -lGL -lfreeimage -lSDL
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/opengl__
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/opengl--
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/opengl__: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/opengl--: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/opengl__ ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/opengl-- ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/src/Keyboard.o: src/Keyboard.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Keyboard.o src/Keyboard.cpp
 
 ${OBJECTDIR}/src/main.o: src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -73,10 +81,20 @@ ${OBJECTDIR}/src/Sprite.o: src/Sprite.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Sprite.o src/Sprite.cpp
 
+${OBJECTDIR}/src/Mouse.o: src/Mouse.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Mouse.o src/Mouse.cpp
+
 ${OBJECTDIR}/src/Window.o: src/Window.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Window.o src/Window.cpp
+
+${OBJECTDIR}/src/Text.o: src/Text.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Text.o src/Text.cpp
 
 # Subprojects
 .build-subprojects:
@@ -84,7 +102,7 @@ ${OBJECTDIR}/src/Window.o: src/Window.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/opengl__
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/opengl--
 
 # Subprojects
 .clean-subprojects:

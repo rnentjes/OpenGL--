@@ -31,7 +31,7 @@ Sprite::~Sprite() {
 }
 
 void Sprite::draw() {
-    glColor4f(_r, _g, _b, 0.02);
+    glColor4f(_r, _g, _b, 0.82);
     
     glBegin(GL_TRIANGLE_FAN);
 

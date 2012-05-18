@@ -10,6 +10,7 @@
 
 #include <time.h>
 
+#include "Text.h"
 #include "Sprite.h"
 
 class Window {
@@ -24,16 +25,24 @@ public:
     void addSprite(Sprite *sprite);
         
 private:
+    int _windowId;
     int _width;
     int _height;
     
     Sprite * _sprites;
 
-    long _last_time;
+    long _last_time_sec;
+    long _last_time_nano;
     
     unsigned int _program_start;
     unsigned int _fps_start;
     unsigned int _fps_frames;    
+    
+    char _fps_buffer[250];
+    bool _f1_pressed;
+    bool _fullscreen;
+    
+    Text *_text;
 };
 
 #endif	/* WINDOW_H */
